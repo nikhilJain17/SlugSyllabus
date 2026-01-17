@@ -6,3 +6,85 @@
   line-height: 1.55;
   color: #e2e8f0;
 }
+
+
+/* ===== LLM OUTPUT ===== */
+
+.llm-card {
+  background: #0b1220;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-top: 12px;
+}
+
+.llm-content {
+  max-width: 900px;
+  line-height: 1.6;
+  color: #e5e7eb;
+}
+
+/* Headings */
+.llm-content h1,
+.llm-content h2,
+.llm-content h3 {
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
+  font-weight: 600;
+}
+
+.llm-content h2 {
+  font-size: 1.2rem;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 4px;
+}
+
+/* Lists */
+.llm-content ul {
+  margin-left: 1.25rem;
+  list-style: disc;
+}
+
+.llm-content li {
+  margin: 0.3em 0;
+}
+
+/* Tables */
+.llm-content table {
+  border-collapse: collapse;
+  margin: 12px 0;
+  width: 100%;
+}
+
+.llm-content th,
+.llm-content td {
+  border: 1px solid #1e293b;
+  padding: 8px 10px;
+}
+
+.llm-content th {
+  background: #020617;
+  font-weight: 600;
+}
+
+/* Code blocks */
+.llm-content pre {
+  background: #020617;
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.llm-content code {
+  background: #020617;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+/* Blockquotes */
+.llm-content blockquote {
+  border-left: 3px solid #38bdf8;
+  padding-left: 12px;
+  color: #cbd5f5;
+  margin: 12px 0;
+}

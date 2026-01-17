@@ -1,0 +1,8 @@
+Here's a summary of the syllabus in 6 concise bullet points:
+
+*   This is an in-person, graduate-level "Computer Networks" course taught by Chen Qian, meeting MWF 9:20-10:25 AM, requiring an undergraduate networking prerequisite.
+*   The final grade is primarily determined by a Survey Study (30%), Course Project (25%), Midterm (25%), and Reading Reports (20%).
+*   Key assessments include a midterm exam (February 18th, open notes) and a programming course project (due March 15th).
+*   Students will complete multiple reading reports throughout the quarter and a comprehensive survey paper (due March 20th), both based on assigned research papers.
+*   The curriculum covers advanced networking topics from application layer to quantum networks, heavily utilizing current research papers alongside a recommended textbook.
+*   The university enforces a strict academic honesty policy with zero tolerance for violations, and disability accommodations are supported via the DRC.

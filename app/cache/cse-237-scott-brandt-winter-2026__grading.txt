@@ -1,0 +1,99 @@
+{
+  "grading_components": [
+    {
+      "name": "Exams",
+      "percentage": 50,
+      "details": "mid-term and a final exam. They will cover the readings and associated class discussions.",
+      "evidence_quote": "50% for the exams"
+    },
+    {
+      "name": "Project and Presentation",
+      "percentage": 50,
+      "details": "Projects will be graded on both content and presentation (both written and oral/poster).",
+      "evidence_quote": "50% for the project and presentation"
+    },
+    {
+      "name": "Paper Summaries",
+      "percentage": null,
+      "details": "For each week's worth of paper summaries not submitted, your final grade will drop by 1 letter grade.",
+      "evidence_quote": "For each week's worth of paper summaries not submitted, your final grade will drop by 1 letter grade."
+    }
+  ],
+  "deliverables": [
+    {
+      "name": "Paper Summaries",
+      "type": "Assignment",
+      "details": "Before the class in which each paper will be discussed, you must prepare a short summary of each paper.",
+      "evidence_quote": "you must prepare a short summary of each paper."
+    },
+    {
+      "name": "Project Pre-Proposal",
+      "type": "Project Milestone",
+      "details": null,
+      "evidence_quote": "Project Pre-Proposal due by 11:59pm"
+    },
+    {
+      "name": "Project Proposal",
+      "type": "Project Milestone",
+      "details": null,
+      "evidence_quote": "Project Proposal due by 11:59pm"
+    },
+    {
+      "name": "Project Bibliography",
+      "type": "Project Milestone",
+      "details": null,
+      "evidence_quote": "Project Bibliography due by 11:59pm"
+    },
+    {
+      "name": "Project Plan",
+      "type": "Project Milestone",
+      "details": null,
+      "evidence_quote": "Project Plan due by 11:59pm"
+    },
+    {
+      "name": "Project Progress Report",
+      "type": "Project Milestone",
+      "details": null,
+      "evidence_quote": "Project Progress Report due by 11:59pm"
+    },
+    {
+      "name": "Final Paper Submission",
+      "type": "Project",
+      "details": "You will be required to write a report on a topic in the area of computer storage systems.",
+      "evidence_quote": "Final Paper Submission due by 11:59pm"
+    },
+    {
+      "name": "Project Presentation",
+      "type": "Project",
+      "details": "Time permitting, each project group will give a presentation on their work.",
+      "evidence_quote": "each project group will give a presentation on their work."
+    },
+    {
+      "name": "Mid-term Exam",
+      "type": "Exam",
+      "details": "They will cover the readings and associated class discussions.",
+      "evidence_quote": "There will be a mid-term"
+    },
+    {
+      "name": "Final Exam",
+      "type": "Exam",
+      "details": "They will cover the readings and associated class discussions.",
+      "evidence_quote": "There will be a mid-term and a final exam."
+    }
+  ],
+  "late_policy": "For paper summaries, your final grade will drop by 1 letter grade for each week's worth of paper summaries not submitted. Missing eight or more summaries means you cannot receive a B.",
+  "collaboration_policy": "Groups of up to 3 or 4 students are encouraged to work together on projects. All submitted work must be your own, with proper citations for others' work. Using AI to produce summaries or project materials is considered plagiarism and will result in dismissal with an F.",
+  "evidence_quotes": [
+    "50% for the exams",
+    "50% for the project and presentation",
+    "For each week's worth of paper summaries not submitted, your final grade will drop by 1 letter grade.",
+    "If you miss eight or more paper summaries, you cannot receive a B in the class.",
+    "you must prepare a short summary of each paper.",
+    "You will be required to write a report on a topic in the area of computer storage systems.",
+    "Time permitting, each project group will give a presentation on their work.",
+    "There will be a mid-term and a final exam.",
+    "Because of the size of the class, groups of up to 3 or 4 students are encouraged to work together",
+    "All of the work you turn in must be your own, with proper citations whenever you are presenting the work of others.",
+    "I consider any use of AI to produce summaries or project materials to be plagiarism."
+  ]
+}

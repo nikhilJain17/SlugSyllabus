@@ -53,23 +53,44 @@ PROMPT_SPECS: dict[str, dict] = {
 }
 
 def run_llm(prompt_key: str, syllabus_text: str) -> str:
+    # ---- RAW PROMPT MODE (e.g. compare) ----
+    if prompt_key not in PROMPT_SPECS:
+        try:
+            resp = client.models.generate_content(
+                model=MODEL_NAME,
+                contents=syllabus_text,
+            )
+            return (resp.text or "").strip()
+        except Exception as e:
+            return f"LLM error: {str(e)}"
+
+    # ---- STRUCTURED PROMPT MODE ----
     spec = PROMPT_SPECS[prompt_key]
+
     if not syllabus_text.strip():
         return "No text could be extracted from this PDF (or it’s scanned)."
 
     if spec["mode"] == "text":
         prompt = _wrap_text(spec["prompt"], syllabus_text)
-        resp = client.models.generate_content(model=MODEL_NAME, contents=prompt)  #  [oai_citation:4‡Google AI for Developers](https://ai.google.dev/api/generate-content?utm_source=chatgpt.com)
+        resp = client.models.generate_content(
+            model=MODEL_NAME,
+            contents=prompt,
+        )
         return (resp.text or "").strip()
 
+    # JSON mode
     schema_json = json.dumps(spec["schema"], indent=2)
     prompt = _wrap_json(spec["prompt"], schema_json, syllabus_text)
-    resp = client.models.generate_content(model=MODEL_NAME, contents=prompt)  #  [oai_citation:5‡Google AI for Developers](https://ai.google.dev/api/generate-content?utm_source=chatgpt.com)
+    resp = client.models.generate_content(
+        model=MODEL_NAME,
+        contents=prompt,
+    )
     out = (resp.text or "").strip()
 
     parsed = _extract_json(out)
     return json.dumps(parsed, indent=2, ensure_ascii=False) if parsed is not None else out
 
+    
 def _wrap_text(task: str, text: str) -> str:
     return f"""You analyze university course syllabi.
 

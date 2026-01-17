@@ -1,0 +1,19 @@
+{
+  "official_prereqs": [],
+  "implied_background": [
+    "Graduate student standing",
+    "Basic operating system knowledge",
+    "Equivalent to a standard undergraduate operating systems course",
+    "CSE 231, Advanced Operating Systems (ideally)"
+  ],
+  "tools_languages": [
+    "Google Docs"
+  ],
+  "math_background": [],
+  "evidence_quotes": [
+    "This course is a graduate level study of the issues in the design and implementation of computer storage systems.",
+    "In terms of preparation, you are expected to have basic operating system knowledge, such as presented in a standard undergraduate operating systems course.",
+    "Ideally, you will have taken CSE 231, Advanced Operating Systems, or equivalent.",
+    "Do all of your writing for this class in Google Docs."
+  ]
+}

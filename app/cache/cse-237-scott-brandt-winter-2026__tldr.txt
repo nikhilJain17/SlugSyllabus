@@ -1,0 +1,8 @@
+Here's a summary of the syllabus in 6 concise bullet points:
+
+*   **Course Overview:** A graduate-level seminar (CSE 237) focusing on the design and implementation of computer storage systems, from historical to modern research topics.
+*   **Core Activities:** The course is discussion-based, requiring students to read and submit detailed summaries for 1-2 research papers *before* each class, totaling approximately 40 papers.
+*   **Major Assessments:** Student performance is evaluated through a mid-term exam, a final exam, and a significant project (original research, implementation, or an in-depth survey) with multiple deliverables.
+*   **Grading Breakdown:** Final grades are split equally, with 50% for exams and 50% for the project and its presentation.
+*   **Mandatory Participation & Summaries:** Active class participation is essential. Missing paper summaries significantly impacts the grade; for example, more than three missed summaries prevents an 'A', and more than eight prevents a 'B'.
+*   **Strict AI Policy:** The syllabus explicitly states that any use of AI to produce summaries or project materials constitutes plagiarism, resulting in immediate dismissal from the class with an 'F' and a university report. Google Docs history may be requested to verify originality.

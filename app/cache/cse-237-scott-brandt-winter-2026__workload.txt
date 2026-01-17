@@ -1,0 +1,25 @@
+{
+  "hours_per_week_estimate": null,
+  "workload_shape": "Consistent high workload with periodic peaks due to frequent project deliverables and exams.",
+  "heavy_weeks": [
+    1,
+    3,
+    4,
+    5,
+    7,
+    10
+  ],
+  "why_heavy": "The course requires reading 1-2 research papers and preparing summaries for each class, totaling ~40 papers. A significant project with frequent deliverables (Pre-Proposal, Proposal, Bibliography, Plan, Progress Report, Final Paper), and two major exams (mid-term and final), create a high and spiky workload.",
+  "evidence_quotes": [
+    "We will cover 1–2 papers per class, for a total of ~40 papers. Read each paper and prepare a short summary before class.",
+    "You will be required to write a report on a topic... original research... at least 10-20 papers that were not discussed in class.",
+    "In developing your project you will be required to submit a proposal, design, etc. at regular intervals throughout the quarter.",
+    "There will be a mid-term and a final exam.",
+    "Fri Jan 16, 2026  Project Pre-Proposal due by 11:59pm",
+    "Fri Jan 30, 2026  Project Proposal due by 11:59pm",
+    "Fri Feb 6, 2026  Project Bibliography due by 11:59pm",
+    "Fri Feb 13, 2026  Project Plan due by 11:59pm",
+    "Fri Feb 27, 2026  Project Progress Report due by 11:59pm",
+    "Thu Mar 19, 2026  Final Paper Submission due by 11:59pm"
+  ]
+}

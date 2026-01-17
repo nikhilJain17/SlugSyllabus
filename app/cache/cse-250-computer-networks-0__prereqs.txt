@@ -1,0 +1,19 @@
+{
+  "official_prereqs": [
+    "Undergraduate Computer Network course (CSE150 or equivalence)"
+  ],
+  "implied_background": [
+    "Undergraduate level computer networking material",
+    "General graduate-level computer science background"
+  ],
+  "tools_languages": [
+    "Programming skills"
+  ],
+  "math_background": [],
+  "evidence_quotes": [
+    "Undergraduate Computer Network course (CSE150 or equivalence)",
+    "Lecture Videos of my CSE80N course in case you want to review the undergrad networking material.",
+    "This course provides an overview and study of graduate-level computer networking topics",
+    "There is one programming assignment."
+  ]
+}

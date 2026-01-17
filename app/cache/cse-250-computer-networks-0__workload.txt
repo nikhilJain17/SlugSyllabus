@@ -1,0 +1,20 @@
+{
+  "hours_per_week_estimate": null,
+  "workload_shape": "spiky",
+  "heavy_weeks": [
+    "Week of January 12th",
+    "Week of February 16th",
+    "Week of March 9th",
+    "Week of March 16th"
+  ],
+  "why_heavy": "Multiple reading reports are due early in the quarter (Week of Jan 12th). A midterm exam and another reading report are due in Week of Feb 16th. The course project is due in Week of March 9th, and the final survey paper is due in Week of March 16th.",
+  "evidence_quotes": [
+    "paper [1] (due 1/12)",
+    "paper [2] (due 1/14)",
+    "paper [3] (due 1/16)",
+    "A midterm exam will be in class on 2/18.",
+    "paper [13] (2/20)",
+    "3/15 Course project due",
+    "3/20 Survey paper due"
+  ]
+}

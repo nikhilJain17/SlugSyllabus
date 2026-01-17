@@ -9,25 +9,33 @@ Insights are generated on-demand via prompt keys (LLM stubbed) and optionally ca
 # from project root
 rm -rf .venv
 
-# create venv (use python3.10 or python3.11 if available)
+# create fresh venv with a modern Python
 python3.11 -m venv .venv
-
-# activate
 source .venv/bin/activate
 
-# upgrade pip
-python -m pip install --upgrade pip
+# upgrade tooling
+python -m pip install --upgrade pip setuptools wheel
 
-# install deps
-python -m pip install -r requirements.txt
-python -m pip install google-generativeai
+# install deps explicitly (no guessing)
+python -m pip install \
+  fastapi \
+  "uvicorn[standard]" \
+  jinja2 \
+  python-multipart \
+  pypdf \
+  markdown \
+  google-generativeai
 
-# sanity check (this must print "ok")
-python -c "import google.generativeai as genai; print('ok')"
+# sanity checks (ALL must succeed)
+python -c "import fastapi; print('fastapi ok')"
+python -c "import uvicorn; print('uvicorn ok')"
+python -c "import google.generativeai as genai; print('gemini ok')"
 
-# run the app (IMPORTANT: use python -m)
+# set your API key
+export GEMINI_API_KEY="YOUR_KEY_HERE"
+
+# RUN THE APP (IMPORTANT)
 python -m uvicorn app.main:app --reload
-
 Open:
 - http://127.0.0.1:8000/
 
