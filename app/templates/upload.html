@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Upload | SlugSyllabus{% endblock %}
+
+{% block content %}
+<h1 class="text-2xl font-semibold tracking-tight">Upload a syllabus</h1>
+<p class="mt-1 text-sm text-slate-400">Stores PDFs in <code class="px-1 py-0.5 rounded bg-slate-900 border border-slate-800">uploads/</code> and metadata in <code class="px-1 py-0.5 rounded bg-slate-900 border border-slate-800">index.json</code>.</p>
+
+<form class="mt-6 grid gap-4 max-w-xl" method="post" action="/upload" enctype="multipart/form-data">
+  <div class="grid gap-2">
+    <label class="text-sm text-slate-300">Course code</label>
+    <input name="course_code" required placeholder="CSE 130"
+      class="rounded-xl border border-slate-800 bg-slate-900/40 px-3 py-2 text-sm outline-none focus:border-emerald-500/60" />
+  </div>
+
+  <div class="grid gap-2">
+    <label class="text-sm text-slate-300">Title (optional)</label>
+    <input name="title" placeholder="Principles of Computer Systems Design"
+      class="rounded-xl border border-slate-800 bg-slate-900/40 px-3 py-2 text-sm outline-none focus:border-emerald-500/60" />
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <div class="grid gap-2">
+      <label class="text-sm text-slate-300">Instructor (optional)</label>
+      <input name="instructor" placeholder="Prof. X"
+        class="rounded-xl border border-slate-800 bg-slate-900/40 px-3 py-2 text-sm outline-none focus:border-emerald-500/60" />
+    </div>
+    <div class="grid gap-2">
+      <label class="text-sm text-slate-300">Quarter (optional)</label>
+      <input name="quarter" placeholder="Fall"
+        class="rounded-xl border border-slate-800 bg-slate-900/40 px-3 py-2 text-sm outline-none focus:border-emerald-500/60" />
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <div class="grid gap-2">
+      <label class="text-sm text-slate-300">Year (optional)</label>
+      <input name="year" type="number" placeholder="2026"
+        class="rounded-xl border border-slate-800 bg-slate-900/40 px-3 py-2 text-sm outline-none focus:border-emerald-500/60" />
+    </div>
+    <div class="grid gap-2">
+      <label class="text-sm text-slate-300">Syllabus PDF</label>
+      <input name="pdf" type="file" accept="application/pdf" required
+        class="rounded-xl border border-slate-800 bg-slate-900/40 px-3 py-2 text-sm" />
+    </div>
+  </div>
+
+  <button class="mt-2 rounded-xl bg-emerald-500/10 px-4 py-2 text-sm text-emerald-300 hover:bg-emerald-500/15 border border-emerald-500/20">
+    Upload →
+  </button>
+</form>
+{% endblock %}

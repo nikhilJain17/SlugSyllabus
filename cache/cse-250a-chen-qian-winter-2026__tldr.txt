@@ -1,0 +1,6 @@
+[DEMO PLACEHOLDER]
+
+Prompt key: tldr
+Prompt: Summarize the syllabus in 6 bullet points.
+
+(Later: run LLM on extracted PDF text.)

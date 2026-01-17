@@ -1,0 +1,6 @@
+[DEMO PLACEHOLDER]
+
+Prompt key: workload
+Prompt: Estimate workload (hours/week), identify heavy weeks, and explain why.
+
+(Later: run LLM on extracted PDF text.)

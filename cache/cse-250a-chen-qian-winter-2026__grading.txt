@@ -1,0 +1,6 @@
+[DEMO PLACEHOLDER]
+
+Prompt key: grading
+Prompt: Extract grading breakdown and major deliverables.
+
+(Later: run LLM on extracted PDF text.)

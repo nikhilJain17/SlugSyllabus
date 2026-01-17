@@ -1,0 +1,6 @@
+[DEMO PLACEHOLDER]
+
+Prompt key: prereqs
+Prompt: Infer implied prerequisites and recommended background.
+
+(Later: run LLM on extracted PDF text.)

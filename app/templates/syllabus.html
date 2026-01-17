@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}{{ s.course_code }} | SlugSyllabus{% endblock %}
+
+{% block content %}
+<div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+  <div>
+    <h1 class="text-2xl font-semibold tracking-tight">
+      {{ s.course_code }}{% if s.title %}: {{ s.title }}{% endif %}
+    </h1>
+    <p class="mt-1 text-sm text-slate-400">
+      {% if s.instructor %}{{ s.instructor }} · {% endif %}
+      {% if s.quarter %}{{ s.quarter }}{% endif %}{% if s.year %} {{ s.year }}{% endif %}
+    </p>
+  </div>
+
+  <form method="post" action="/cache/clear/{{ s.slug }}">
+    <button class="rounded-xl border border-slate-800 bg-slate-900 px-4 py-2 text-sm hover:bg-slate-800">
+      Clear insight cache
+    </button>
+  </form>
+</div>
+
+<div class="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
+  <!-- Left: Tabs -->
+  <div class="rounded-2xl border border-slate-800 bg-slate-900/30 p-4">
+    <div class="flex flex-wrap gap-2">
+      {% for k in prompt_keys %}
+      <button
+        class="rounded-xl border border-slate-800 bg-slate-950 px-3 py-2 text-sm hover:bg-slate-900"
+        hx-get="/insight/{{ s.slug }}/{{ k }}"
+        hx-target="#panel"
+        hx-swap="innerHTML"
+      >
+        {{ k.upper() }}
+      </button>
+      {% endfor %}
+    </div>
+
+    <div id="panel" class="mt-4">
+      <div class="rounded-xl border border-slate-800 bg-slate-950 p-4 text-sm text-slate-300">
+        Click a tab to generate an insight.
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: PDF viewer -->
+  <div class="rounded-2xl border border-slate-800 bg-slate-900/30 p-4">
+    <div class="flex items-center justify-between">
+      <div class="text-sm text-slate-300">Syllabus PDF</div>
+      <a class="text-sm text-emerald-300 hover:text-emerald-200" href="/pdf/{{ s.slug }}" target="_blank">Open in new tab →</a>
+    </div>
+
+    <div class="mt-3 overflow-hidden rounded-xl border border-slate-800 bg-slate-950">
+      <iframe
+        src="/pdf/{{ s.slug }}"
+        class="h-[70vh] w-full"
+        title="Syllabus PDF"
+      ></iframe>
+    </div>
+  </div>
+</div>
+{% endblock %}
