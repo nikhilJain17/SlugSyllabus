@@ -6,17 +6,27 @@ Insights are generated on-demand via prompt keys (LLM stubbed) and optionally ca
 ## Prereqs
 - Python 3.10+
 
-## Setup
-```bash
-python -m venv .venv
-source .venv/bin/activate   # mac/linux
-pip install -r requirements.txt
-```
+# from project root
+rm -rf .venv
 
-## Run
-```bash
-uvicorn app.main:app --reload
-```
+# create venv (use python3.10 or python3.11 if available)
+python3.11 -m venv .venv
+
+# activate
+source .venv/bin/activate
+
+# upgrade pip
+python -m pip install --upgrade pip
+
+# install deps
+python -m pip install -r requirements.txt
+python -m pip install google-generativeai
+
+# sanity check (this must print "ok")
+python -c "import google.generativeai as genai; print('ok')"
+
+# run the app (IMPORTANT: use python -m)
+python -m uvicorn app.main:app --reload
 
 Open:
 - http://127.0.0.1:8000/
