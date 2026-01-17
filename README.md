@@ -38,3 +38,16 @@ Edit `app/llm.py`:
 2) Open a syllabus detail page
 3) Click TLDR / WORKLOAD / GRADING / PREREQS tabs
 4) Refresh the page and click again to show caching is instant
+
+## Gemini setup
+Set your key:
+
+```bash
+export GEMINI_API_KEY="YOUR_KEY"
+```
+
+Install deps:
+
+```bash
+pip install -r requirements.txt
+```

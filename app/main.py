@@ -10,10 +10,11 @@ from typing import Any, Optional
 
 from fastapi import FastAPI, Request, UploadFile, File, Form, HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse, FileResponse
+from pypdf import PdfReader
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from .llm import PROMPTS, run_llm
+from .llm import PROMPT_SPECS, run_llm
 
 APP_DIR = Path(__file__).resolve().parent
 ROOT_DIR = APP_DIR.parent
@@ -49,6 +50,31 @@ def _load_index() -> dict[str, Any]:
 def _save_index(data: dict[str, Any]) -> None:
     INDEX_PATH.write_text(json.dumps(data, indent=2), encoding="utf-8")
 
+
+def _extract_pdf_text(pdf_path: Path, max_chars: int = 45000) -> str:
+    """Best-effort PDF -> text. Truncate to keep LLM calls small."""
+    try:
+        reader = PdfReader(str(pdf_path))
+        parts: list[str] = []
+        total = 0
+        for page in reader.pages:
+            try:
+                t = page.extract_text() or ""
+            except Exception:
+                t = ""
+            if t:
+                parts.append(t)
+                total += len(t)
+            if total >= max_chars:
+                break
+        text = "\n\n".join(parts).strip()
+        return text[:max_chars]
+    except Exception:
+        return ""
+
+def _cache_file(slug: str, prompt_key: str) -> Path:
+    safe_key = re.sub(r"[^a-zA-Z0-9_-]+", "_", prompt_key)
+    return CACHE_DIR / f"{slug}__{safe_key}.txt"
 
 def _slugify(s: str) -> str:
     s = s.strip().lower()
@@ -166,7 +192,7 @@ def syllabus_page(request: Request, slug: str):
         {
             "request": request,
             "s": meta,
-            "prompt_keys": list(PROMPTS.keys()),
+            "prompt_keys": list(PROMPT_SPECS.keys()),
         },
     )
 
@@ -181,40 +207,41 @@ def syllabus_pdf(slug: str):
     if not path.exists():
         raise HTTPException(status_code=404, detail="PDF missing on disk")
 
-    return FileResponse(str(path), media_type="application/pdf", filename=path.name)
+    return FileResponse(str(path), media_type="application/pdf", filename=path.name, headers={"Content-Disposition": f'inline; filename="{path.name}"'})
 
 
 @app.get("/insight/{slug}/{prompt_key}", response_class=HTMLResponse)
 def insight_partial(slug: str, prompt_key: str):
-    if prompt_key not in PROMPTS:
+    """HTMX endpoint: returns the insight panel for a given prompt_key."""
+    if prompt_key not in PROMPT_SPECS:
         raise HTTPException(status_code=400, detail="Unknown prompt_key")
 
-    meta = _find_meta(slug)
-    if not meta:
+    item = _find_meta(slug)
+    if item is None:
         raise HTTPException(status_code=404, detail="Not found")
 
-    cache_path = CACHE_DIR / f"{slug}__{prompt_key}.txt"
+    # pdf_path = Path(item["pdf_path"])
+    pdf_path = UPLOADS_DIR / item["filename"]
+    cache_path = _cache_file(slug, prompt_key)
 
     if cache_path.exists():
-        text = cache_path.read_text(encoding="utf-8")
+        text = cache_path.read_text(errors="ignore")
         source = "cache"
     else:
-        # For demo: we aren't extracting PDF text.
-        syllabus_text = ""
+        syllabus_text = _extract_pdf_text(pdf_path)
         text = run_llm(prompt_key, syllabus_text)
-        cache_path.write_text(text, encoding="utf-8")
+        cache_path.write_text(text)
         source = "generated"
 
     html = f"""
-    <div class=\"rounded-xl border border-slate-800 bg-slate-950 p-4\">
-      <div class=\"flex items-start justify-between gap-3\">
+    <div class="panel">
+      <div class="panel-h">
         <div>
-          <div class=\"text-sm font-semibold tracking-tight\">{prompt_key.upper()}</div>
-          <div class=\"mt-1 text-xs text-slate-400\">Source: {source}</div>
+          <div class="panel-title">{prompt_key.upper()}</div>
+          <div class="panel-sub">Source: {source}</div>
         </div>
-        <span class=\"rounded-full border border-slate-800 bg-slate-900 px-2 py-1 text-xs text-slate-300\">LLM</span>
       </div>
-      <pre class=\"mono mt-3\">{_escape(text)}</pre>
+      <pre class="mono">{_escape(text)}</pre>
     </div>
     """
     return HTMLResponse(content=html)
